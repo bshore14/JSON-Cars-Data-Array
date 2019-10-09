@@ -1,0 +1,47 @@
+<html>
+	<head>
+		<title>ITM3100 FL19 JSON Cars Examples Shore</title>
+	</head>
+	<body>
+
+	<p id="p_JSONResult">
+		
+		<script>
+			var strResult;
+
+			var JSON_Object;
+			var car;
+			var model;
+
+			// Establish JSON Data Array
+			JSON_Object =
+			{
+				"name":"Bill",
+				"age":30,
+				"cars":
+					[
+						{"name":"Ford", "models": ["F150","Focus","Mustang"] },
+						{"name":"BMW", "models": ["320i","X3","X5"] },
+						{"name":"Tesla", "models": ["S","3","Y"]}
+					]
+			} // End Define JSON_Object
+
+			strResult = "JSON Example: Cars<br />";
+
+			strResult += JSON_Object.name + "<br />";
+			strResult += JSON_Object.age + "<br />";
+
+			for (car in JSON_Object.cars)
+			{
+				strResult += "<h3>" + JSON_Object.cars[car].name + "<h3>";
+				for (model in JSON_Object.cars[car].models)
+				{
+					strResult += JSON_Object.cars[car].models[model] + "<br />";
+				} // end for - process models within cars
+			} // end for - process cars
+
+			document.getElementById("p_JSONResult").innerHTML = strResult;
+		</script>
+
+	</body>
+</html>
